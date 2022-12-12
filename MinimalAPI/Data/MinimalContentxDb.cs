@@ -3,11 +3,11 @@
 
 namespace MinimalAPI.Data
 {
-    public class MinimalContentxDb: DbContext
+    public class MinimalContextDb: DbContext
     {
-        public MinimalContentxDb(DbContextOptions<MinimalContentxDb> options) : base(options) { }
+        public MinimalContextDb(DbContextOptions<MinimalContextDb> options) : base(options) { }
 
-        public DbSet<Fornecedor> Forncedores { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
