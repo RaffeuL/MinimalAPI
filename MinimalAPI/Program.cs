@@ -35,7 +35,7 @@ app.MapGet("/fornecedor/{id}", async (Guid id, MinimalContextDb context) =>
 )
 .Produces<Fornecedor>(StatusCodes.Status200OK)
 .Produces(StatusCodes.Status404NotFound)
-.WithName("GetFornecedoresPorId")
+.WithName("GetFornecedorPorId")
 .WithTags("Fornecedor");
 
 
@@ -62,7 +62,8 @@ app.MapPost("/fornecedor/", async (MinimalContextDb context, Fornecedor forneced
 app.MapPut("/fornecedor/{id}",
     async (Guid id, MinimalContextDb context, Fornecedor fornecedor) =>
     {
-        var fornecedorBanco = await context.Fornecedores.FindAsync(id);
+        var fornecedorBanco = await context.Fornecedores.AsNoTracking<Fornecedor>()
+                                                        .FirstOrDefaultAsync( f => f.Id == id);
         if (fornecedorBanco == null) return Results.NotFound();
 
         if (!MiniValidator.TryValidate(fornecedor, out var errors))

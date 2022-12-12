@@ -10,7 +10,7 @@ using MinimalAPI.Data;
 
 namespace MinimalAPI.Migrations
 {
-    [DbContext(typeof(MinimalContentxDb))]
+    [DbContext(typeof(MinimalContextDb))]
     partial class MinimalContentxDbModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

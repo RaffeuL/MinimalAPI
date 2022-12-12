@@ -11,7 +11,7 @@ using MinimalAPI.Data;
 
 namespace MinimalAPI.Migrations
 {
-    [DbContext(typeof(MinimalContentxDb))]
+    [DbContext(typeof(MinimalContextDb))]
     [Migration("20221202163552_Initial")]
     partial class Initial
     {
